@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+    <com.slidingceilingsample.view.CustomerNestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+            android:fillViewport="true">
+
+        <LinearLayout
+                android:descendantFocusability="blocksDescendants"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:id="@+id/crm_goods_comment_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/crm_goods_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:src="@mipmap/timg"
+                        android:scaleType="centerCrop"/>
+
+                <TextView
+                        android:id="@+id/crm_goods_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:layout_below="@id/crm_goods_img"
+                        android:maxLines="2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="10dp"
+                        android:text="上滑动，tab吸顶，下滑到子列表position0时下拉tab"
+                        android:textColor="#404040"
+                        android:textSize="14dp"/>
+            </RelativeLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:background="#F2F2F2"
+                    android:layout_height="?attr/actionBarSize"
+                    app:tabMode="fixed"
+                    app:tabGravity="fill"/>
+
+            <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/crm_single_item_pager"
+                    android:layout_width="match_parent"
+                    android:fillViewport="true"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
+    </com.slidingceilingsample.view.CustomerNestedScrollView>
+</FrameLayout>
